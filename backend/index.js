@@ -21,6 +21,16 @@ app.get("/usuarios", (req, res) => {
   });
 });
 
+app.get("/usuarios/:id", (req, res) => {
+  const usuarioId = req.params.id;
+  const q = "SELECT * FROM usuarios WHERE id = ?";
+
+  db.query(q, [usuarioId], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
+
 app.post("/usuarios", (req, res) => {
   const q = "INSERT INTO usuarios (`nome`, `email`, `fone`) VALUES (?)";
   const values = [req.body.nome, req.body.email, req.body.fone];
