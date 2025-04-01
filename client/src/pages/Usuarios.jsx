@@ -37,36 +37,38 @@ function Usuarios() {
     }
   };
   return (
-    <div className="w-screen h-screen justify-items-center px-10 py-6">
+    <div className="w-screen h-screen justify-items-center px-6 py-6">
       <Title>Usuários do sistema</Title>
-      <div className="w-[60%] pt-6">
+      <div className="w-[100%] sm:w-[80%] lg:w-[60%] pt-6">
         <Button onClick={novoUsuario}>Novo Usuário</Button>
       </div>
       <div className="w-full justify-items-center space-y-2">
         {usuarios.map((usuarios) => (
           <div
-            className="flex bg-slate-400 p-5 w-[60%] justify-between rounded-lg py-3 text-white"
+            className="flex flex-col md:flex-row space-y-2 bg-slate-400 p-5 w-[100%] sm:w-[80%] lg:w-[60%] justify-between rounded-lg py-3 text-white"
             key={usuarios.id}
           >
-            <div className="flex flex-col w-[75%] md:flex-row">
-              <p className="w-[35%]">{usuarios.nome}</p>
-              <p className="w-[45%]">{usuarios.email}</p>
-              <p className="w-[25%]">{usuarios.fone}</p>
+            <div className="flex flex-col w-[75%] xl:flex-row">
+              <p className="w-[30%]">{usuarios.nome}</p>
+              <p className="w-[60%]">{usuarios.email}</p>
+              <p className="w-[10%]">{usuarios.fone}</p>
             </div>
             <div className="flex">
               <button
                 onClick={() => {
                   handleDelete(usuarios.id);
                 }}
+                title="Deletar"
               >
-                <Trash2Icon className="p-[2px]" />
+                <Trash2Icon className="p-[2px] hover:p-[1px] transition-all" />
               </button>
               <button
                 onClick={() => {
                   atualizarUsuario(usuarios);
                 }}
+                title="Editar"
               >
-                <ForwardIcon />
+                <ForwardIcon className="p-[2px] hover:p-[0px] transition-all" />
               </button>
             </div>
           </div>

@@ -53,7 +53,7 @@ function Atualizar() {
       <Title>Atualizar usuário</Title>
       {usuarioAtt.map((usuarioAtt) => (
         <div
-          className="flex flex-col w-[60%] justify-center items-center text-center bg-slate-400 p-5 py-3 my-4 rounded-lg  text-white"
+          className="flex flex-col w-[60%] justify-center items-center text-center bg-slate-400 p-5 py-5 my-4 rounded-lg  text-white"
           key={usuarioAtt.id}
         >
           <p>
@@ -67,29 +67,29 @@ function Atualizar() {
           <p>
             Telefone: <span className="font-bold">{usuarioAtt.fone}</span>
           </p>
+          <div className="flex flex-col py-6 space-y-4 text-black">
+            <Input
+              type="text"
+              placeholder="Nome"
+              onChange={handleChange}
+              name="nome"
+            />
+            <Input
+              type="text"
+              placeholder="E-mail"
+              onChange={handleChange}
+              name="email"
+            />
+            <Input
+              type="text"
+              placeholder="Telefone"
+              onChange={handleChange}
+              name="fone"
+            />
+          </div>
         </div>
       ))}
-      <div className="flex flex-col py-6 space-y-4">
-        <Input
-          type="text"
-          placeholder="Nome"
-          onChange={handleChange}
-          name="nome"
-        />
-        <Input
-          type="text"
-          placeholder="E-mail"
-          onChange={handleChange}
-          name="email"
-        />
-        <Input
-          type="text"
-          placeholder="Telefone"
-          onChange={handleChange}
-          name="fone"
-        />
-        <Button onClick={handleClick}>Atualizar</Button>
-      </div>
+      <Button onClick={handleClick}>Atualizar</Button>
     </div>
   );
 }
