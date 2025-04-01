@@ -4,6 +4,7 @@ import axios from "axios";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import Title from "../components/Title";
+import PhoneInput from "../functions/PhoneInput";
 
 function Criar() {
   const navigate = useNavigate();
@@ -18,10 +19,17 @@ function Criar() {
   };
 
   const handleClick = async (e) => {
+    e.preventDefault();
+    const emailValido = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
+      usuario.email
+    );
     if (!usuario.nome.trim() || !usuario.email.trim() || !usuario.fone.trim()) {
       console.log("Todos os campos precisam ser preenchidos");
+    } else if (!emailValido) {
+      console.log("Email invalido");
+    } else if (usuario.fone.length < 14 || usuario.fone.length > 15) {
+      console.log("O numero deve conter entre 10 e 11 digitos");
     } else {
-      e.preventDefault();
       try {
         await axios.post("http://localhost:8800/usuarios", usuario);
         navigate("/");
@@ -52,6 +60,7 @@ function Criar() {
           onChange={handleChange}
           name="fone"
         />
+        <PhoneInput value={usuario.fone} onChange={handleChange} />
       </div>
 
       <Button onClick={handleClick}>Adicionar</Button>

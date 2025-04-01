@@ -4,6 +4,7 @@ import axios from "axios";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import Title from "../components/Title";
+import PhoneInput from "../functions/PhoneInput";
 
 function Atualizar() {
   const [usuarioAtt, setUsuarioAtt] = useState([]);
@@ -36,9 +37,15 @@ function Atualizar() {
 
   const handleClick = async (e) => {
     e.preventDefault();
+    const emailValido = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
+      usuario.email
+    );
     if (!usuario.nome.trim() || !usuario.email.trim() || !usuario.fone.trim()) {
       console.log("Todos os campos precisam ser preenchidos");
-      return;
+    } else if (!emailValido) {
+      console.log("Email invalido");
+    } else if (usuario.fone.length < 14 || usuario.fone.length > 15) {
+      console.log("O numero deve conter entre 10 e 11 digitos");
     } else {
       try {
         await axios.put("http://localhost:8800/usuarios/" + usuarioId, usuario);
@@ -80,12 +87,7 @@ function Atualizar() {
               onChange={handleChange}
               name="email"
             />
-            <Input
-              type="text"
-              placeholder="Telefone"
-              onChange={handleChange}
-              name="fone"
-            />
+            <PhoneInput value={usuario.fone} onChange={handleChange} />
           </div>
         </div>
       ))}
