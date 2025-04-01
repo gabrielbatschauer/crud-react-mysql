@@ -45,13 +45,13 @@ function Usuarios() {
       <div className="w-full justify-items-center space-y-2">
         {usuarios.map((usuarios) => (
           <div
-            className="flex flex-col md:flex-row space-y-2 bg-slate-400 p-5 w-[100%] sm:w-[80%] lg:w-[60%] justify-between rounded-lg py-3 text-white"
+            className="flex flex-col md:flex-row space-y-2 md:space-y-0 bg-slate-400 p-5 w-[100%] sm:w-[80%] lg:w-[60%] justify-between rounded-lg py-3 text-white"
             key={usuarios.id}
           >
             <div className="flex flex-col w-[85%] xl:flex-row ">
-              <p className="w-full md:w-[30%]">{usuarios.nome}</p>
-              <p className="w-full md:w-[50%]">{usuarios.email}</p>
-              <p className="w-full md:w-[20%]">{usuarios.fone}</p>
+              <p className="w-full xl:w-[30%]">{usuarios.nome}</p>
+              <p className="w-full xl:w-[50%]">{usuarios.email}</p>
+              <p className="w-full xl:w-[20%]">{usuarios.fone}</p>
             </div>
             <div className="flex">
               <button

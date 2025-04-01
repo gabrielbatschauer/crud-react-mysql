@@ -54,12 +54,6 @@ function Criar() {
           onChange={handleChange}
           name="email"
         />
-        <Input
-          type="text"
-          placeholder="Telefone"
-          onChange={handleChange}
-          name="fone"
-        />
         <PhoneInput value={usuario.fone} onChange={handleChange} />
       </div>
 

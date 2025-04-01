@@ -35,7 +35,7 @@ const PhoneInput = ({ value, onChange }) => {
       name="fone"
       value={value}
       onChange={handlePhoneChange}
-      placeholder="(XX) XXXXX-XXXX"
+      placeholder="(xx) xxxxx-xxxx"
       maxLength="15"
     />
   );
