@@ -20,7 +20,7 @@ function Atualizar() {
   const usuarioId = location.pathname.split("/")[2];
 
   const handleClick = async (e) => {
-    if (!usuario.nome || !usuario.email || !usuario.fone) {
+    if (!usuario.nome.trim() || !usuario.email.trim() || !usuario.fone.trim()) {
       console.log("Todos os campos precisam ser preenchidos");
     } else {
       e.preventDefault();
@@ -35,7 +35,7 @@ function Atualizar() {
   return (
     <div className="w-screen h-screen justify-items-center px-10 py-6 flex flex-col items-center">
       <Title>Atualizar usuário</Title>
-      <div className="py-6 flex flex-col">
+      <div className="flex flex-col py-6 space-y-4">
         <Input
           type="text"
           placeholder="Nome"

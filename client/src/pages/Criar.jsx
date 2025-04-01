@@ -18,7 +18,7 @@ function Criar() {
   };
 
   const handleClick = async (e) => {
-    if (!usuario.nome || !usuario.email || !usuario.fone) {
+    if (!usuario.nome.trim() || !usuario.email.trim() || !usuario.fone.trim()) {
       console.log("Todos os campos precisam ser preenchidos");
     } else {
       e.preventDefault();
