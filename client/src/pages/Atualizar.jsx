@@ -60,7 +60,7 @@ function Atualizar() {
       <Title>Atualizar usuário</Title>
       {usuarioAtt.map((usuarioAtt) => (
         <div
-          className="flex flex-col w-[60%] justify-center items-center text-center bg-slate-400 p-5 py-5 my-4 rounded-lg  text-white"
+          className="flex flex-col w-[60%] justify-center items-center text-center bg-gray-800 p-5 py-5 my-4 rounded-lg  text-white"
           key={usuarioAtt.id}
         >
           <p>
